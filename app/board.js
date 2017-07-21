@@ -1,17 +1,17 @@
 class Board {
-  constructor(fields) {
-    this.fields = fields;
+  constructor(rows) {
+    this.rows = rows;
   }
 
   width() {
-    // TODO
+    return this.rows[0].length
   }
 
   height() {
-    // TODO
+    return this.rows.length
   }
 
-  nextState() {
+  step() {
     // TODO
   }
 }

@@ -1,23 +1,18 @@
 const Board = require('./board');
 
-test('makes an new board', () => {
-  board = new Board([[false, false, false],
-                     [false, false, false],
-                     [false, false, false]]);
+test('next step for board', () => {
+  board = new Board(
+  [
+    [0, 1, 0], // line 1
+    [0, 1, 0], // line 2
+    [0, 1, 0]
+  ]);
 
-  expect(board.width()).toBe(3);
-  expect(board.height()).toBe(3);
+  board.step();
+
+  expect(board.rows).toBe([
+    [0, 0, 0], // line 1
+    [1, 1, 1], // line 2
+    [0, 0, 0]
+  ])
 });
-
-// test('sets a field', () => {
-//   board = new Board([[false, false, false],
-//                      [false, false, false],
-//                      [false, false, false]]);
-
-//   board.set(1, 1, true);
-//   expect(board.fields[1][1]).toBe(true);
-// });
-
-// test('calculates the next state' () => {
-//   TODO
-// });
