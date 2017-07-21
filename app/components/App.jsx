@@ -5,10 +5,10 @@ class BoardViewer extends React.Component {
   render() {
     var rows = this.props.board.rows.map(function(row) {
       var cells = row.map(function(cell) {
-        var value = cell ? "1" : "0";
-
+        var value = cell ? "alive" : "dead";
+          
         return (
-          <td>{value}</td>
+          <td className={value}></td>
         );
       });
 
@@ -35,8 +35,19 @@ export default class App extends React.Component {
                         [0, 1, 0],
                         [0, 1, 0]])
     }
+    this.goToNextState = this.goToNextState.bind(this);
   }
 
+  componentDidMount() {
+    setTimeout(this.goToNextState, 1000);
+  }
+  
+  goToNextState() {
+    this.state.board.step();
+    setTimeout(this.goToNextState, 1000)
+    this.forceUpdate();
+  }
+  
   render() {
     return (
       <div>

@@ -11,6 +11,16 @@ td {
   height: 2em;
 }
 
+td.dead 
+{
+  background: white;
+}
+
+td.alive
+{
+  background: black;
+}
+
 a {
   color: #3f894a;
   text-decoration: none;
